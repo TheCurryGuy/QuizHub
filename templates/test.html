@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="test">
+    <h1>University Of Engineering & Management - Kolkata</h1>
+    <form action="{{ url_for('test') }}" method="POST">
+        <label for="student_name">Your Name:</label>
+        <input type="text" name="student_name" id="student_name" required>
+        <br><br>
+
+        {% for i in range(num_questions) %}
+            <div class="question">
+                <p><strong>Question {{ i+1 }}:</strong> {{ questions[i][1] }}</p> <!-- Display the question -->
+                <ul class="options">
+                    {% for j in range(2, 6) %}
+                        <li>{{ questions[i][j] }}</li> <!-- Display options -->
+                    {% endfor %}
+                </ul>
+                <label for="answer_{{ i+1 }}">Your Answer:</label>
+                <input type="text" name="answer_{{ i+1 }}" id="answer_{{ i+1 }}" required>
+                <input type="hidden" name="correct_option_{{ i+1 }}" value="{{ questions[i][6] }}"> <!-- Hidden field to store correct option -->
+            </div>
+            <br>
+        {% endfor %}
+
+        <input type="hidden" name="num_questions" value="{{ num_questions }}"> <!-- Hidden field to store the number of questions -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class = "welcome">
+    <h1>Welcome to QuizHub - The Quiz Appearing Platform</h1>
+    <form action="/start_test" method="post" class = "starts">
+        <label for="delete_questions">Do you want to delete the existing questions?</label>
+        <select id="delete_questions" name="delete_questions">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <button type="submit">Start Test</button>
+    </form>  
+</body>
+</html>
